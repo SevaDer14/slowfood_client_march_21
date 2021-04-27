@@ -1,9 +1,12 @@
 describe('User can see menu', () => {
   beforeEach(() => {
-    cy.intercept("http:/localhost:3000/api/menu", {
-      fixture: "menu_example.json",
-    });
-    cy.visit('/')
+    cy.server()
+    cy.route({
+      methode: 'GET',
+      url: 'http://localhost:3001/api/menu',
+      response: "fixture:menu_example.json",
+    })
+    cy.visit('http://localhost:3001')
   })
 
   describe('Menu should be visible', () => {
