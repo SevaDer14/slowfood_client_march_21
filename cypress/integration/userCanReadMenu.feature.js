@@ -11,10 +11,13 @@ describe('User can see menu', () => {
 
   describe('Menu should be visible', () => {
     it("Shows menu", () => {
-      cy.get('[data-cy="starter-menu"]').should("be.visible")
-      cy.get('[data-cy="main-menu"]').should("be.visible")
-      cy.get('[data-cy="dessert-menu"]').should("be.visible")
-      cy.get('[data-cy="beverage-menu"]').should("be.visible")
+      cy.get('[data-cy="menu"]').within(() => {
+        cy.get('[data-cy="title"]').should("be.visible")
+        cy.get('[data-cy="description"]').should("be.visible")
+        cy.get('[data-cy="price"]').should("be.visible")
+        cy.get('[data-cy="size"]').should("be.visible")
+      })
+      
     })
   })
 })
