@@ -19,11 +19,11 @@ class Menu extends Component {
     let dataIndex = menuData.map((item) => {
       return (
         <Item key={item.id}>
-          <Item.Content>
-            <Item.Header>{item.title}</Item.Header>
-            <Item.Description>{item.description}</Item.Description>
-            <Item.Extra>{item.price}Kr</Item.Extra>
-            <Item.Extra>{item.size}</Item.Extra>
+          <Item.Content data-cy='menu'>
+            <Item.Header data-cy='title'>{item.title}</Item.Header>
+            <Item.Description data-cy='description'>{item.description}</Item.Description>
+            <Item.Extra data-cy='price'>{item.price}Kr</Item.Extra>
+            <Item.Extra data-cy='size'>{item.size}</Item.Extra>
           </Item.Content>
         </Item>
       );
