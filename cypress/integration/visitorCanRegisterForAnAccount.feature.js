@@ -11,8 +11,11 @@ describe("A button to add product to order", () => {
 
   describe("should be visible", () => {
     it("for authenticated users", () => {
-      cy.get('[data-cy="register]').click();
-      cy.get('[data-cy="email-input]').type("example@example.com");
+      cy.get('[data-cy="register"]').click();
+      cy.get('[data-cy="email-input"]').type("example@example.com");
+      cy.get('[data-cy="password-input"]').type("password")
+      cy.get('[data-cy="password-confirmation-input"]').type("password")
+      cy.get('[data-cy="submit"]').click()
     });
   });
 });
