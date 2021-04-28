@@ -1,32 +1,31 @@
-import axios from "axios";
 import React, { Component } from "react";
+import axios from "axios";
 
 class Registration extends Component {
   state = {
     renderForm: false,
   };
 
-  registerUser = async (event) =>{
-    event.preventDefault()
-    let credentials= {
+  registerUser = async (event) => {
+    event.preventDefault();
+    let credentials = {
       email: event.target.email.value,
       password: event.target.password.value,
       password_confirmation: event.target.passwordConfirmation.value,
-    }
+    };
+    
     try {
-      let response =await axios.post('/auth', credentials)
-      debugger
+      let response = await axios.post("/auth", credentials);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    //
-  }
+  };
   render() {
     const { renderForm } = this.state;
     return (
       <div>
         {renderForm ? (
-          <form onSubmit={(event)=> this.registerUser(event)}>
+          <form onSubmit={(event) => this.registerUser(event)}>
             <input
               type="email"
               name="email"
@@ -45,7 +44,9 @@ class Registration extends Component {
               data-cy="password-confirmation-input"
               placeholder="Confirm Password"
             />
-            <button type="submit" data-cy="submit">Register</button>
+            <button type="submit" data-cy="submit">
+              Register
+            </button>
           </form>
         ) : (
           <button
