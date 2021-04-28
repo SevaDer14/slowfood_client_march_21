@@ -9,13 +9,26 @@ class Registration extends Component {
     return (
       <div>
         {renderForm ? (
-          <form>
+          <form >
             <input
               type="email"
               name="email"
               data-cy="email-input"
               placeholder="Your Email"
             />
+            <input
+              type="password"
+              name="password"
+              data-cy="password-input"
+              placeholder="Your Password"
+            />
+            <input
+              type="password"
+              name="password"
+              data-cy="password-confirmation-input"
+              placeholder="Confirm Password"
+            />
+            <button type="submit" data-cy="submit">Register</button>
           </form>
         ) : (
           <button
