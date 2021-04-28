@@ -1,0 +1,100 @@
+{
+  "positions": [
+    {
+      "id": 1,
+      "title": "Small beans",
+      "description": "Beans, Small",
+      "price": 45,
+      "category": "starter",
+      "available": true
+    },
+    {
+      "id": 2,
+      "title": "Gin beans",
+      "description": "Beans, Gin",
+      "price": 35,
+      "category": "starter",
+      "available": true
+    },
+    {
+      "id": 3,
+      "title": "Half beans",
+      "description": "Beans, Half",
+      "price": 55,
+      "category": "starter",
+      "available": true
+    },
+    {
+      "id": 4,
+      "title": "Big beans",
+      "description": "Beans, Big",
+      "price": 115,
+      "category": "main",
+      "available": true
+    },
+    {
+      "id": 5,
+      "title": "BB beans",
+      "description": "Beans, Big, Black",
+      "price": 135,
+      "category": "main",
+      "available": true
+    },
+    {
+      "id": 6,
+      "title": "Panda beans",
+      "description": "Beans, Panda",
+      "price": 220,
+      "category": "main",
+      "available": true
+    },
+    {
+      "id": 7,
+      "title": "Sweet beans",
+      "description": "Beans, Cute",
+      "price": 95,
+      "category": "desserts",
+      "available": true
+    },
+    {
+      "id": 8,
+      "title": "Ice cream beans",
+      "description": "Beans, Cold",
+      "price": 80,
+      "category": "desserts",
+      "available": true
+    },
+    {
+      "id": 9,
+      "title": "Red beans",
+      "description": "Beans, Red flavour",
+      "price": 45,
+      "category": "desserts",
+      "available": true
+    },
+    {
+      "id": 10,
+      "title": "Coke",
+      "size": "33cl",
+      "price": 25,
+      "category": "beverages",
+      "available": true
+    },
+    {
+      "id": 11,
+      "title": "Zingo",
+      "size": "33cl",
+      "price": 25,
+      "category": "beverages",
+      "available": true
+    },
+    {
+      "id": 12,
+      "title": "Beer",
+      "size": "50cl",
+      "price": 25,
+      "category": "beverages",
+      "available": true
+    }
+  ]
+}
