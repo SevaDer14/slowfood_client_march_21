@@ -16,6 +16,8 @@ describe("A button to add product to order", () => {
       cy.get('[data-cy="password-input"]').type("password")
       cy.get('[data-cy="password-confirmation-input"]').type("password")
       cy.get('[data-cy="submit"]').click()
+      cy.get('[data-cy="success-message"]').should('contain','Successfull registration')
+      cy.get('[data-cy="order-button"]').should('be.visible')
     });
   });
 });
