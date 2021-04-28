@@ -1,15 +1,32 @@
+import axios from "axios";
 import React, { Component } from "react";
 
 class Registration extends Component {
   state = {
     renderForm: false,
   };
+
+  registerUser = async (event) =>{
+    event.preventDefault()
+    let credentials= {
+      email: event.target.email.value,
+      password: event.target.password.value,
+      password_confirmation: event.target.passwordConfirmation.value,
+    }
+    try {
+      let response =await axios.post('/auth', credentials)
+      debugger
+    } catch (error) {
+      console.log(error)
+    }
+    //
+  }
   render() {
     const { renderForm } = this.state;
     return (
       <div>
         {renderForm ? (
-          <form >
+          <form onSubmit={(event)=> this.registerUser(event)}>
             <input
               type="email"
               name="email"
@@ -24,7 +41,7 @@ class Registration extends Component {
             />
             <input
               type="password"
-              name="password"
+              name="passwordConfirmation"
               data-cy="password-confirmation-input"
               placeholder="Confirm Password"
             />
