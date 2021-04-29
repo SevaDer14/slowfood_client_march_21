@@ -16,12 +16,25 @@ class Registration extends Component {
     
     try {
       let response = await axios.post("/auth", credentials);
-    } catch (error) {
+      const userCredentials = {
+        uid: response.headers['uid'],
+        client: response.headers['client'],
+        acces_token: response.headers['access-token'],
+        expiry: response.headers['expiry'],
+        token_type: "Bearer"
+      } 
+
+      localStorage.setItem('userData', JSON.stringify(userCredentials))
+      this.setState({
+        message: 'Successfull registration',
+        renderForm: false
+      })
+    }catch (error) {
       console.log(error);
     }
   };
   render() {
-    const { renderForm } = this.state;
+    const { renderForm, message } = this.state;
     return (
       <div>
         {renderForm ? (
@@ -48,6 +61,8 @@ class Registration extends Component {
               Register
             </button>
           </form>
+        ) : message ? (
+          <div data-cy="success-message" >{message}</div> 
         ) : (
           <button
             data-cy="register"
