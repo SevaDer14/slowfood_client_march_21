@@ -9,6 +9,10 @@ describe("User can see menu", () => {
     cy.visit("http://localhost:3001");
   });
 
+  
+
+
+  /*
   describe("Menu should be visible", () => {
     it("Shows menu", () => {
       cy.get('[data-cy="menu"]').within(() => {
@@ -42,4 +46,5 @@ describe("User can see menu", () => {
       });
     });
   });
+  */
 });

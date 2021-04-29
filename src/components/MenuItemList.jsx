@@ -15,8 +15,7 @@ class Menu extends Component {
   }
 
   render() {
-    const { menuData } = this.state;
-    //debugger
+    const { menuData } = this.state;    
     const categoryItems = menuData.filter(item => item.category === 'starters')
     let dataIndex = categoryItems.map((item) => {
       return (

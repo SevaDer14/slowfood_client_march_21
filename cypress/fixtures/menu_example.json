@@ -5,7 +5,7 @@
       "title": "Small beans",
       "description": "Beans, Small",
       "price": 45,
-      "category": "starter",
+      "category": "starters",
       "available": true
     },
     {
@@ -13,7 +13,7 @@
       "title": "Gin beans",
       "description": "Beans, Gin",
       "price": 35,
-      "category": "starter",
+      "category": "starters",
       "available": true
     },
     {
@@ -21,7 +21,7 @@
       "title": "Half beans",
       "description": "Beans, Half",
       "price": 55,
-      "category": "starter",
+      "category": "starters",
       "available": true
     },
     {
@@ -29,7 +29,7 @@
       "title": "Big beans",
       "description": "Beans, Big",
       "price": 115,
-      "category": "main",
+      "category": "mains",
       "available": true
     },
     {
@@ -37,7 +37,7 @@
       "title": "BB beans",
       "description": "Beans, Big, Black",
       "price": 135,
-      "category": "main",
+      "category": "mains",
       "available": true
     },
     {
@@ -45,7 +45,7 @@
       "title": "Panda beans",
       "description": "Beans, Panda",
       "price": 220,
-      "category": "main",
+      "category": "mains",
       "available": true
     },
     {
