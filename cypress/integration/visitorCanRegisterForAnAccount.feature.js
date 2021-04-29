@@ -2,9 +2,14 @@ describe("A button to add product to order", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
-      methode: "GET",
+      method: "GET",
       url: "http://localhost:3001/api/menu",
       response: "fixture:menu_example.json",
+    });
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3001/api/auth",
+      response: "fixture:user_registration.json",
     });
     cy.visit("/");
   });
