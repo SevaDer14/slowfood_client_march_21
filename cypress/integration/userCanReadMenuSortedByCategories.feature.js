@@ -14,7 +14,7 @@ describe("User can see menu", () => {
       cy.get("[data-cy=starters-button]").click();
       cy.get("[data-cy=menu-category-header]").should(
         "contain.text",
-        "Starters"
+        "starters"
       );
       cy.get("[data-cy=menu-listing]").within(() => {
         cy.get("[data-cy=starter-0]")
@@ -37,7 +37,7 @@ describe("User can see menu", () => {
       cy.get("[data-cy=mains-button]").click();
       cy.get("[data-cy=menu-category-header]").should(
         "contain.text",
-        "Mains"
+        "mains"
       );
       cy.get("[data-cy=menu-listing]").within(() => {
         cy.get("[data-cy=main-0]")
@@ -58,7 +58,7 @@ describe("User can see menu", () => {
       cy.get("[data-cy=desserts-button]").click();
       cy.get("[data-cy=menu-category-header]").should(
         "contain.text",
-        "Desserts"
+        "desserts"
       );
       cy.get("[data-cy=menu-listing]").within(() => {
         cy.get("[data-cy=dessert-0]")
@@ -81,7 +81,7 @@ describe("User can see menu", () => {
       cy.get("[data-cy=beverages-button]").click();
       cy.get("[data-cy=menu-category-header]").should(
         "contain.text",
-        "Beverages"
+        "beverages"
       );
       cy.get("[data-cy=menu-listing]").within(() => {
         cy.get("[data-cy=beverage-0]")

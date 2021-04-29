@@ -1,38 +1,42 @@
 import React, { Component } from "react";
-import { Container, Item } from "semantic-ui-react";
-import {getPositions} from "../modules/positionData.js"
-class Menu extends Component {
+import { Container, Item, Header } from "semantic-ui-react";
+import {getMenuItems} from "../modules/menuItemsData.js"
+
+class MenuItemList extends Component {
   state = {
     menuData: [],
   };
   componentDidMount() {
-    this.getPositionsData();
+    this.getMenuItemsData();
   }
 
-  async getPositionsData() {
-    let result = await getPositions();
+  async getMenuItemsData() {
+    let result = await getMenuItems();
     this.setState({ menuData: result });
   }
 
   render() {
     const { menuData } = this.state;    
-    const categoryItems = menuData.filter(item => item.category === 'starters')
+    const categoryItems = menuData.filter(item => item.category === this.props.category)
     let dataIndex = categoryItems.map((item) => {
-      return (
-        <Item key={item.id}>
-          <Item.Content data-cy='menu'>
+      return (                
+        <Item key={item.id} data-cy='menu-listing'>
+          <Item.Content data-cy={`${this.props.category[0,-1]}`}>
             <Item.Header data-cy='title'>{item.title}</Item.Header>
             <Item.Description data-cy='description'>{item.description}</Item.Description>
             <Item.Extra data-cy='price'>{item.price}Kr</Item.Extra>
             <Item.Extra data-cy='size'>{item.size}</Item.Extra>
           </Item.Content>
-        </Item>
+        </Item>        
       );
     });
     return (
-    <Container>{dataIndex}</Container>
+    <>
+      <Header data-cy='menu-category-header'>{this.props.category}</Header>
+      <Container>{dataIndex}</Container>
+    </>
     )
   }
 }
 
-export default Menu;
+export default MenuItemList;
