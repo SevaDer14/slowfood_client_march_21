@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Item } from "semantic-ui-react";
+import { Button, Container, Item } from "semantic-ui-react";
 import {getPositions} from "../modules/positionData.js"
 class Menu extends Component {
   state = {
@@ -24,6 +24,9 @@ class Menu extends Component {
             <Item.Description data-cy='description'>{item.description}</Item.Description>
             <Item.Extra data-cy='price'>{item.price}Kr</Item.Extra>
             <Item.Extra data-cy='size'>{item.size}</Item.Extra>
+            {this.props.authenticated && (
+              <Button data-cy='order-button'>Add to order</Button>
+            )}
           </Item.Content>
         </Item>
       );

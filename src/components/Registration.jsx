@@ -29,6 +29,7 @@ class Registration extends Component {
         message: 'Successfull registration',
         renderForm: false
       })
+      this.props.authStatus()
     }catch (error) {
       console.log(error);
     }
