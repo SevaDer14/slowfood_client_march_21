@@ -90,7 +90,7 @@ describe("User can see menu", () => {
           .should("contain", "Coke");
         cy.get("[data-cy=beverage-0]")
           .first()
-          .find("[data-cy=description]")
+          .find("[data-cy=size]")
           .should("be.visible");
         cy.get("[data-cy=beverage-0]")
           .first()

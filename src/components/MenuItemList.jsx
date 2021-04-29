@@ -16,14 +16,16 @@ class MenuItemList extends Component {
   }
 
   render() {
+    
     const { menuData } = this.state;    
     const categoryItems = menuData.filter(item => item.category === this.props.category)
     let dataIndex = categoryItems.map((item) => {
       return (                
         <Item key={item.id} data-cy='menu-listing'>
-          <Item.Content data-cy={`${this.props.category[0,-1]}`}>
+          <Item.Content data-cy={`${this.props.category.slice(0,-1)}-${categoryItems.indexOf(item)}`}>            
             <Item.Header data-cy='title'>{item.title}</Item.Header>
             <Item.Description data-cy='description'>{item.description}</Item.Description>
+            <Item.Description data-cy='size'>{item.size}</Item.Description>
             <Item.Extra data-cy='price'>{item.price}Kr</Item.Extra>
             <Item.Extra data-cy='size'>{item.size}</Item.Extra>
           </Item.Content>
