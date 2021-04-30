@@ -13,7 +13,7 @@ class LogIn extends Component {
       email: event.target.email.value,
       password: event.target.password.value
     }
-    
+    try {
     let response = await axios.get("/users", credentials)
     const userCredentials = {
       uid: response.headers['uid'],
@@ -29,10 +29,17 @@ class LogIn extends Component {
       renderForm: false
     })  
     this.props.authStatus()  
+    } catch (error) {
+      this.setState({
+        message: 'Wrong email or password',
+        renderForm: false,
+        keepLogin: true
+      })
+    }
   }
 
   render() {
-    const {renderForm, message} = this.state    
+    const {renderForm, message, login} = this.state    
     return (
       <div>
         {renderForm ? (
@@ -54,7 +61,8 @@ class LogIn extends Component {
             </button>
           </form>
         ) : message ? (
-          <div data-cy="success-message">{message}</div>
+                
+          <div data-cy="message">{message}</div>
         ) : (
           <button
           data-cy="log-in-button"
