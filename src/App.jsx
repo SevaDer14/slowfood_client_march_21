@@ -5,8 +5,13 @@ import LogIn from './components/LogIn'
 
 class App extends Component {
   state = {
-    category: "starters"
-    
+    category: "starters",
+    authenticated: false 
+  }
+
+  setAuthStatus= () => {
+    debugger
+    this.setState({authenticated: true})
   }
 
   render() {
@@ -29,9 +34,9 @@ class App extends Component {
           <Menu.Item data-cy='beverages-button'name='Beverages'
             onClick={() => this.setState({ category: 'beverages' })}/> 
             
-        </Menu>
-        <LogIn />
-        <MenuItemList category={this.state.category}/>
+        </Menu >
+        <LogIn authStatus={this.setAuthStatus} />
+        <MenuItemList authenticated={this.state.authenticated} category={this.state.category}/>
       </Container>
     )
   }

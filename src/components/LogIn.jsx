@@ -27,7 +27,8 @@ class LogIn extends Component {
     this.setState({
       message: 'You logged in successfully',
       renderForm: false
-    })    
+    })  
+    this.props.authStatus()  
   }
 
   render() {
