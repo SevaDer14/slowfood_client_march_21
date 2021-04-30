@@ -6,3 +6,4 @@ const getMenuItems = async () => {
 };
 
 export { getMenuItems }
+

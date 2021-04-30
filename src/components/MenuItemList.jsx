@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Item, Header } from "semantic-ui-react";
+import { Container, Item, Header, Button } from "semantic-ui-react";
 import {getMenuItems} from "../modules/menuItemsData.js"
 
 class MenuItemList extends Component {
@@ -28,6 +28,9 @@ class MenuItemList extends Component {
             <Item.Description data-cy='size'>{item.size}</Item.Description>
             <Item.Extra data-cy='price'>{item.price}Kr</Item.Extra>
             <Item.Extra data-cy='size'>{item.size}</Item.Extra>
+            {this.props.authenticated && (
+              <Button data-cy='order-button'>Add to order</Button>
+            )}
           </Item.Content>
         </Item>        
       );
