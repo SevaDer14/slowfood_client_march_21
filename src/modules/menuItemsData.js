@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const getPositions = async () => {
+const getMenuItems = async () => {
   const response = await axios.get("/menu")
   return response.data.menu_items;
 };
 
-export { getPositions }
+export { getMenuItems }
