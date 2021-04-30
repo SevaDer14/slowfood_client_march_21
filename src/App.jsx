@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MenuItemList from './components/MenuItemList'
 import { Container, Header, Menu } from 'semantic-ui-react' 
+import LogIn from './components/LogIn'
 
 class App extends Component {
   state = {
@@ -26,7 +27,9 @@ class App extends Component {
             onClick={() => this.setState({ category: 'desserts' })}/>
           <Menu.Item data-cy='beverages-button'name='Beverages'
             onClick={() => this.setState({ category: 'beverages' })}/> 
+            
         </Menu>
+        <LogIn />
         <MenuItemList category={this.state.category}/>
       </Container>
     )

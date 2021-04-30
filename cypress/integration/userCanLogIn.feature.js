@@ -1,6 +1,11 @@
 describe('User can log in', () => {
   beforeEach(() => {
-    cy.server()
+    cy.server();
+    cy.route({
+      method: "GET",
+      url: "http://localhost:3001/api/menu",
+      response: "fixture:menu_example.json",
+    });
     cy.route({
       method: "GET",
       url: "http://localhost:3001/api/users",
