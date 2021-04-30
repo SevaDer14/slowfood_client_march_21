@@ -35,7 +35,7 @@ describe('User can log in', () => {
       cy.get('[data-cy="email-input"]').type("wrong@example.com")
       cy.get('[data-cy="password-input"]').type("password")
       cy.get('[data-cy="submit-log-in"]').click()
-      cy.get('[data-cy="success-message"]').should('contain','Wrong email or password')      
+      cy.get('[data-cy="error-message"]').should('contain','Wrong email or password')      
     });
   })
 
@@ -46,7 +46,7 @@ describe('User can log in', () => {
       cy.get('[data-cy="email-input"]').type("example@example.com")
       cy.get('[data-cy="password-input"]').type("wrongPassword")
       cy.get('[data-cy="submit-log-in"]').click()
-      cy.get('[data-cy="success-message"]').should('contain','Wrong email or password')      
+      cy.get('[data-cy="error-message"]').should('contain','Wrong email or password')      
     });
   })
 })

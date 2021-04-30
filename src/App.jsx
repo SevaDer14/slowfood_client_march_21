@@ -6,6 +6,7 @@ import LogIn from './components/LogIn'
 class App extends Component {
   state = {
     category: "starters"
+    
   }
 
   render() {

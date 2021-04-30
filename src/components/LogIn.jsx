@@ -1,15 +1,41 @@
+import axios from "axios";
 import React, { Component } from "react";
 
 class LogIn extends Component {
   state = {
-    renderForm: false,
+    renderForm: false,    
   };
+
+  loginUser = async (event) => {
+    event.preventDefault()
+    
+    let credentials = {
+      email: event.target.email.value,
+      password: event.target.password.value
+    }
+    
+    let response = await axios.get("/users", credentials)
+    const userCredentials = {
+      uid: response.headers['uid'],
+      client: response.headers['client'],
+      acces_token: response.headers['access-token'],
+      expiry: response.headers['expiry'],
+      token_type: "Bearer"
+    }
+
+    localStorage.setItem('userData', JSON.stringify(userCredentials))
+    this.setState({
+      message: 'You logged in successfully',
+      renderForm: false
+    })    
+  }
+
   render() {
-    const {renderForm} = this.state
+    const {renderForm, message} = this.state    
     return (
       <div>
         {renderForm ? (
-          <form>
+          <form onSubmit={(event) => this.loginUser(event)}>
             <input
               data-cy="email-input"
               type="email"
@@ -26,8 +52,12 @@ class LogIn extends Component {
               Submit
             </button>
           </form>
+        ) : message ? (
+          <div data-cy="success-message">{message}</div>
         ) : (
-          <button onClick={() => this.setState({ renderForm: true })}>
+          <button
+          data-cy="log-in-button"
+          onClick={() => this.setState({ renderForm: true })}>
             Log in
           </button>
         )}
