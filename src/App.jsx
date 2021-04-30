@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MenuItemList from './components/MenuItemList'
+import Registration from './components/Registration'
 import { Container, Header, Menu } from 'semantic-ui-react' 
 import LogIn from './components/LogIn'
 
@@ -10,37 +11,49 @@ class App extends Component {
   }
 
   setAuthStatus= () => {
-    debugger
     this.setState({authenticated: true})
   }
 
   render() {
     return (
       <Container text>
-        <Header 
-          textAlign='center' 
+        <Registration authStatus={this.setAuthStatus} />
+        <Header
+          textAlign="center"
           style={{
-            marginTop: '28px',
-            fontSize: '28px'
-        }}
-          >SLOW-FOOD</Header>        
-        <Menu pointing secondary >
-          <Menu.Item data-cy='starters-button' name='Starters' 
-            onClick={() => this.setState({ category: 'starters' })}/>
-          <Menu.Item data-cy='mains-button'name='Mains'
-            onClick={() => this.setState({ category: 'mains' })}/>
-          <Menu.Item data-cy='desserts-button'name='Desserts'
-            onClick={() => this.setState({ category: 'desserts' })}/>
-          <Menu.Item data-cy='beverages-button'name='Beverages'
-            onClick={() => this.setState({ category: 'beverages' })}/> 
-            
-        </Menu >
+            marginTop: "28px",
+            fontSize: "28px",
+          }}
+        >
+          SLOW-FOOD
+        </Header>
+        <Menu pointing secondary>
+          <Menu.Item 
+            data-cy="starters-button"
+            name="Starters"
+            onClick={() => this.setState({ category: "starters" })}
+          />
+          <Menu.Item
+            data-cy="mains-button"
+            name="Mains"
+            onClick={() => this.setState({ category: "mains" })}
+          />
+          <Menu.Item
+            data-cy="desserts-button"
+            name="Desserts"
+            onClick={() => this.setState({ category: "desserts" })}
+          />
+          <Menu.Item
+            data-cy="beverages-button"
+            name="Beverages"
+            onClick={() => this.setState({ category: "beverages" })}
+          />
+        </Menu>
         <LogIn authStatus={this.setAuthStatus} />
-        <MenuItemList authenticated={this.state.authenticated} category={this.state.category}/>
+        <MenuItemList authenticated={this.state.authenticated} category={this.state.category} />
       </Container>
-    )
+    );
   }
 }
 
 export default App;
-
