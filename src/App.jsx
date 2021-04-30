@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import MenuItemList from "./components/MenuItemList";
+import React, { Component } from 'react'
+import MenuItemList from './components/MenuItemList'
 import Registration from './components/Registration'
-import { Container, Header, Menu } from "semantic-ui-react";
+import { Container, Header, Menu } from 'semantic-ui-react' 
+import LogIn from './components/LogIn'
 
 class App extends Component {
   state = {
     category: "starters",
-    authenticated: false
-  };
+    authenticated: false 
+  }
 
-  setAuthStatus = () => {
+  setAuthStatus= () => {
     this.setState({authenticated: true})
   }
 
@@ -48,6 +49,7 @@ class App extends Component {
             onClick={() => this.setState({ category: "beverages" })}
           />
         </Menu>
+        <LogIn authStatus={this.setAuthStatus} />
         <MenuItemList authenticated={this.state.authenticated} category={this.state.category} />
       </Container>
     );

@@ -32,7 +32,6 @@ describe("User can see menu", () => {
       });
     });
 
-
     it("Mains category", () => {
       cy.get("[data-cy=mains-button]").click();
       cy.get("[data-cy=menu-category-header]").should(
@@ -54,6 +53,7 @@ describe("User can see menu", () => {
           .should("be.visible");
       });
     });
+
     it("Desserts category", () => {
       cy.get("[data-cy=desserts-button]").click();
       cy.get("[data-cy=menu-category-header]").should(
@@ -75,7 +75,6 @@ describe("User can see menu", () => {
           .should("be.visible");
       });
     });
-
 
     it("Beverages category", () => {
       cy.get("[data-cy=beverages-button]").click();
