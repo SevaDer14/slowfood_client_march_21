@@ -61,8 +61,8 @@ class App extends Component {
         </Menu>
         <LogIn authStatus={this.setAuthStatus} />
         {(this.state.tab === "view-order")
-          ? <ViewOrder orderId={this.setOrderId}/>
-          : <MenuItemList authenticated={this.state.authenticated} tab={this.state.tab} />}
+          ? <ViewOrder orderId={this.state.orderId} />
+          : <MenuItemList orderId={this.setOrderId} authenticated={this.state.authenticated} tab={this.state.tab} />}
       </Container>
     );
   }
