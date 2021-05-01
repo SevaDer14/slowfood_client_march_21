@@ -21,6 +21,11 @@ describe("user can see the order", () => {
       url: "http://localhost:3001/api/orders/**",
       response: "fixture:secound_item_in_order.json",
     });
+    cy.route({
+      method: "GET",
+      url: "http://localhost:3001/api/orders/**",
+      response: "fixture:active_order.json",
+    });
     cy.visit("/");
     cy.get('[data-cy="log-in-button"]').click();
     cy.get('[data-cy="email-input"]').type("example@example.com");
