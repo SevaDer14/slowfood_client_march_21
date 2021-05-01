@@ -26,7 +26,7 @@ describe('user can create an orer', () => {
     });    
     
     it('is expected to display success message', () => {
-      cy.get('[data-cy="item-added-message"]').should('contain.text', 'Small beans were added to your order')
+      cy.get('[data-cy="item-added-message"]').should('contain.text', 'This item was added to your order')
     });
   
   
