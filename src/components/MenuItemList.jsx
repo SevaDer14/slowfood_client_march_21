@@ -38,7 +38,7 @@ class MenuItemList extends Component {
     const categoryItems = menuData.filter(
       (item) => item.category === this.props.tab
     );
-    let dataIndex = categoryItems.map((item) => {
+    let dataIndex = categoryItems.map((item, i) => {
       return (
         <Item key={item.id} data-cy="menu-listing">
           <Item.Content
@@ -57,7 +57,7 @@ class MenuItemList extends Component {
             {this.props.authenticated && (
               <Button
                 data-item_id={item.id}
-                data-cy={`order-button-${item.id}`}
+                data-cy={`order-button-${i + 1}`}
                 onClick={(event) => this.addToOrder(event)}
               >
                 Add to cart

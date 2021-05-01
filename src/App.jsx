@@ -56,12 +56,12 @@ class App extends Component {
           <Menu.Item
             data-cy="view-order-button"
             name="View Order"
-            onClick={() => this.setState({ tab: "view-order" })}
+            onClick={() => this.setState({ tab: "Your order" })}
           />
         </Menu>
         <LogIn authStatus={this.setAuthStatus} />
-        {(this.state.tab === "view-order")
-          ? <ViewOrder orderId={this.state.orderId} />
+        {(this.state.tab === "Your order")
+          ? <ViewOrder orderId={this.state.orderId} tab={this.state.tab} />
           : <MenuItemList orderId={this.setOrderId} authenticated={this.state.authenticated} tab={this.state.tab} />}
       </Container>
     );

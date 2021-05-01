@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {getOrder} from '../modules/orderData'
-import {Item, Container} from 'semantic-ui-react'
+import {Item, Container, Header} from 'semantic-ui-react'
 
 class ViewOrder extends Component {
 
@@ -18,9 +18,9 @@ class ViewOrder extends Component {
   };
   
   render() {
-    let orderItems = this.state.menuData.map((item) => {
+    let orderItems = this.state.menuData.map((item, i) => {
       return (
-        <Item data-cy="menu-listing">
+        <Item data-cy={`item-${i}`}>
           <Item.Content>
             <Item.Header data-cy="title">{item.title}</Item.Header>
             <Item.Extra data-cy="price">{item.price}Kr</Item.Extra>
@@ -29,9 +29,12 @@ class ViewOrder extends Component {
       );
     });
     return (
-      <Container>
+      <>
+      <Header data-cy="menu-category-header">{this.props.tab}</Header>
+      <Container data-cy='order-list'>
         {orderItems}
       </Container>
+      </>
     )
   }
 }
