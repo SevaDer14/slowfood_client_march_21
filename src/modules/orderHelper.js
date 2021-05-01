@@ -9,4 +9,13 @@ const createOrder = async (item_id) => {
   return response.data
 }
 
-export { createOrder }
+const updateOrder = async (item_id, order_id) => {
+  let authHeaders = JSON.parse(localStorage.getItem('userData'))
+  let response = await axios.put(
+    `./orders/${order_id}`,
+     {item_id: item_id}, 
+     {headers: authHeaders}) 
+  return response.data
+}
+
+export { createOrder, updateOrder }

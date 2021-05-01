@@ -1,0 +1,24 @@
+{
+  "message": "This item was added to your order",
+  "order": {
+    "id": 1,
+    "items": [
+      {
+        "id": 1,
+        "title": "Small beans",
+        "description": "Beans, Small",
+        "price": 45,
+        "category": "starters",
+        "available": true
+      },
+      {
+        "id": 2,
+        "title": "Gin beans",
+        "description": "Beans, Gin",
+        "price": 35,
+        "category": "starters",
+        "available": true
+      }
+    ]
+  }
+}
