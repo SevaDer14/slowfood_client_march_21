@@ -31,10 +31,10 @@ describe('user can successfully update order', () => {
   });
 
   it('by adding a secound item', () => {
-    cy.get('[data-cy="message"]').should('contain', 'This item was added to your order')
+    cy.get('[data-cy="item-added-message"]').should('contain', 'This item was added to your order')
   });
 
   it('and the amount of items in the order will be displayed', () => {
-    cy.get('[data-cy="item-count"]').should('contain', 'You have 2 items in your order')
+    cy.get('[data-cy="item-count"]').should('contain.text', 'You have 2 items in the basket')
   });
 })

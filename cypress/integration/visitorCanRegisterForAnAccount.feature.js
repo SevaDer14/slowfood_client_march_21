@@ -25,7 +25,7 @@ describe("A button to add product to order", () => {
         "contain",
         "Successfull registration"
       );
-      cy.get('[data-cy="order-button"]').should("be.visible");
+      cy.get('[data-cy="order-button-1"]').should("be.visible");
     });
   });
 });
