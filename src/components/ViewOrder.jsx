@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import {getOrder} from '../modules/orderData'
+import {getOrder, closeOrder} from '../modules/orderHelper'
 import {Item, Container, Header, Button} from 'semantic-ui-react'
 
 class ViewOrder extends Component {
 
   state = {
     menuData: [],
-    totalPrice: 0
+    totalPrice: 0,    
   };
 
   componentDidMount() {
@@ -20,13 +20,16 @@ class ViewOrder extends Component {
     this.calculateTotalPrice()
   };
 
-  calculateTotalPrice = () => {
-   
+  calculateTotalPrice = () => {   
     this.state.menuData.map((item) => {
       let totalPrice = this.state.totalPrice + item.price
       this.setState({totalPrice: totalPrice}) 
       
     })
+  }
+
+  finalizeOrder = async () => {
+    let result = await closeOrder(this.props.orderId)
   }
   
   render() {
@@ -47,7 +50,7 @@ class ViewOrder extends Component {
         {orderItems}
       </Container>
       <p data-cy='total-price'>Total price: {this.state.totalPrice}Kr</p>
-      <Button data-cy="finalize-order-button">Confirm Order</Button>
+      <Button onClick={() => {this.finalizeOrder()}} data-cy="finalize-order-button">Confirm Order</Button>
       </>
     )
   }
