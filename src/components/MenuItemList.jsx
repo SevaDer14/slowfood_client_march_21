@@ -30,6 +30,7 @@ class MenuItemList extends Component {
       numberOfItems: numberOfItems,
       orderId: response.order.id,
     });
+    debugger
     this.props.orderId(this.state.orderId)
   };
 

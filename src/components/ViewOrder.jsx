@@ -12,7 +12,7 @@ class ViewOrder extends Component {
   componentDidMount() {
     this.getOrderData();
     
-  }
+  };
 
   getOrderData = async () => {
     let result = await getOrder(this.props.orderId);

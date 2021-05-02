@@ -16,15 +16,13 @@ class Registration extends Component {
     
     try {
       let response = await axios.post("http://localhost:3000/api/auth", credentials);
-      debugger
       const userCredentials = {
         uid: response.headers['uid'],
         client: response.headers['client'],
-        acces_token: response.headers['access-token'],
+        access_token: response.headers['access-token'],
         expiry: response.headers['expiry'],
         token_type: "Bearer"
       } 
-      debugger
       localStorage.setItem('userData', JSON.stringify(userCredentials))
       this.setState({
         message: 'Successfull registration',

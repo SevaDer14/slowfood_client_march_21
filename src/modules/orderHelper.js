@@ -5,17 +5,18 @@ const authHeaders = JSON.parse(localStorage.getItem('userData'))
 const createOrder = async (item_id) => {
   let response = await axios.post(
     'http://localhost:3000/api/orders',
-     {item_id: item_id}, 
+    {menu_item_id: item_id}, 
      {headers: authHeaders}) 
+    debugger
   return response.data
 }
 
 const updateOrder = async (item_id, order_id) => {
   let response = await axios.put(
     `http://localhost:3000/api/orders/${order_id}`,
-     {item_id: item_id}, 
+     {menu_item_id: item_id}, 
      {headers: authHeaders}) 
-  return response.data.body
+  return response.data
 }
 
 const getOrder = async (order_id) => {
