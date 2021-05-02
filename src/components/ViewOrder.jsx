@@ -29,14 +29,19 @@ class ViewOrder extends Component {
 
   finalizeOrder = async () => {
     let result = await closeOrder(this.props.orderId)
-    let timestamp =`${result.body.updated_at.slice(11, 16)}`
+    this.setPickUpTime(result.body.updated_at)
+  }
+
+  setPickUpTime = (timeOfOrder) => {
+    let timestamp =`${timeOfOrder.slice(11, 16)}`
     let [hh, mm] = timestamp.split(':').map(s=>parseInt(s, 10));
     const d = new Date();
     d.setHours(hh);
     d.setMinutes(mm);
-    const orderFinishedTime = new Date(d.getTime() + 30 * 60 * 1000)    
-    this.setState({orderFinishedTime: `${orderFinishedTime.toString().slice(16, 21)}`})    
+    const pickUpTime = new Date(d.getTime() + 30 * 60 * 1000)    
+    this.setState({pickUpTime: `${pickUpTime.toString().slice(16, 21)}`})
   }
+   
   
   render() {
     let orderItems = this.state.menuData.map((item, i) => {
@@ -57,6 +62,14 @@ class ViewOrder extends Component {
       </Container>
       <p data-cy='total-price'>Total price: {this.state.totalPrice}Kr</p>
       <Button onClick={() => {this.finalizeOrder()}} data-cy="finalize-order-button">Confirm Order</Button>
+      {(this.state.pickUpTime) 
+      && (
+        <>
+        <p data-cy="order-confirmation-message">Thank you for your order</p>
+        <p data-cy="order-confirmation-ready-time">Your order will be ready at {this.state.pickUpTime}</p>
+        </>
+      )
+      }
       </>
     )
   }
