@@ -7,7 +7,6 @@ const createOrder = async (item_id) => {
     'http://localhost:3000/api/orders',
     {menu_item_id: item_id}, 
      {headers: authHeaders}) 
-    debugger
   return response.data
 }
 
@@ -20,7 +19,9 @@ const updateOrder = async (item_id, order_id) => {
 }
 
 const getOrder = async (order_id) => {
+  debugger
   const response = await axios.get(`http://localhost:3000/api/orders/${order_id}`, {headers: authHeaders})
+  debugger
   return response.data.order.items;
 };
 
