@@ -20,7 +20,7 @@ class MenuItemList extends Component {
     let response;
     let itemId = event.target.dataset.item_id;
     if (this.state.numberOfItems) {
-      response = await updateOrder(itemId, this.state.ortderId);
+      response = await updateOrder(itemId, this.state.orderId);
     } else {
       response = await createOrder(itemId);
     }
@@ -28,20 +28,21 @@ class MenuItemList extends Component {
     this.setState({
       message: response.message,
       numberOfItems: numberOfItems,
-      ortderId: response.order.id,
+      orderId: response.order.id,
     });
+    this.props.orderId(this.state.orderId)
   };
 
   render() {
     const { menuData, message, numberOfItems } = this.state;
     const categoryItems = menuData.filter(
-      (item) => item.category === this.props.category
+      (item) => item.category === this.props.tab
     );
-    let dataIndex = categoryItems.map((item) => {
+    let dataIndex = categoryItems.map((item, i) => {
       return (
         <Item key={item.id} data-cy="menu-listing">
           <Item.Content
-            data-cy={`${this.props.category.slice(
+            data-cy={`${this.props.tab.slice(
               0,
               -1
             )}-${categoryItems.indexOf(item)}`}
@@ -56,7 +57,7 @@ class MenuItemList extends Component {
             {this.props.authenticated && (
               <Button
                 data-item_id={item.id}
-                data-cy={`order-button-${item.id}`}
+                data-cy={`order-button-${i + 1}`}
                 onClick={(event) => this.addToOrder(event)}
               >
                 Add to cart
@@ -68,7 +69,7 @@ class MenuItemList extends Component {
     });
     return (
       <>
-        <Header data-cy="menu-category-header">{this.props.category}</Header>
+        <Header data-cy="menu-category-header">{this.props.tab}</Header>
         {message && <p data-cy="item-added-message">{message}</p>}
         {numberOfItems && (
           <p data-cy="item-count">
