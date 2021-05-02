@@ -23,13 +23,19 @@ class ViewOrder extends Component {
   calculateTotalPrice = () => {   
     this.state.menuData.map((item) => {
       let totalPrice = this.state.totalPrice + item.price
-      this.setState({totalPrice: totalPrice}) 
-      
+      this.setState({totalPrice: totalPrice})      
     })
   }
 
   finalizeOrder = async () => {
     let result = await closeOrder(this.props.orderId)
+    let timestamp =`${result.body.updated_at.slice(11, 16)}`
+    let [hh, mm] = timestamp.split(':').map(s=>parseInt(s, 10));
+    const d = new Date();
+    d.setHours(hh);
+    d.setMinutes(mm);
+    const orderFinishedTime = new Date(d.getTime() + 30 * 60 * 1000)    
+    this.setState({orderFinishedTime: `${orderFinishedTime.toString().slice(16, 21)}`})    
   }
   
   render() {
