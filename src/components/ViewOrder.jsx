@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {getOrder} from '../modules/orderData'
-import {Item, Container, Header} from 'semantic-ui-react'
+import {Item, Container, Header, Button} from 'semantic-ui-react'
 
 class ViewOrder extends Component {
 
@@ -47,6 +47,7 @@ class ViewOrder extends Component {
         {orderItems}
       </Container>
       <p data-cy='total-price'>Total price: {this.state.totalPrice}Kr</p>
+      <Button data-cy="finalize-order-button">Confirm Order</Button>
       </>
     )
   }
