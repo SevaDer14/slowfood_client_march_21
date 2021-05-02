@@ -53,11 +53,13 @@ class App extends Component {
             name="Beverages"
             onClick={() => this.setState({ tab: "beverages" })}
           />
-          <Menu.Item
+          {this.state.authenticated && (
+            <Menu.Item
             data-cy="view-order-button"
             name="View Order"
             onClick={() => this.setState({ tab: "Your order" })}
           />
+          )}
         </Menu>
         <LogIn authStatus={this.setAuthStatus} />
         {(this.state.tab === "Your order")
