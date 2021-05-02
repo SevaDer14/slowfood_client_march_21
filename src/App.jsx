@@ -4,6 +4,7 @@ import ViewOrder from './components/ViewOrder'
 import Registration from './components/Registration'
 import { Container, Header, Menu } from 'semantic-ui-react' 
 import LogIn from './components/LogIn'
+import Footer from './components/Footer'
 
 class App extends Component {
   state = {
@@ -21,6 +22,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <Container text>
         <Registration authStatus={this.setAuthStatus} />
         <Header
@@ -65,7 +67,9 @@ class App extends Component {
         {(this.state.tab === "Your order")
           ? <ViewOrder orderId={this.state.orderId} tab={this.state.tab} />
           : <MenuItemList orderId={this.setOrderId} authenticated={this.state.authenticated} tab={this.state.tab} />}
-      </Container>
+      </Container>    
+      <Footer/>
+      </>
     );
   }
 }
