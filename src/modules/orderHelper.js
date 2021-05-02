@@ -3,10 +3,12 @@ import axios from 'axios'
 const authHeaders = JSON.parse(localStorage.getItem('userData'))
 
 const createOrder = async (item_id) => {
+  
   let response = await axios.post(
     'http://localhost:3000/api/orders',
     {menu_item_id: item_id}, 
-     {headers: authHeaders}) 
+     {headers: authHeaders})
+     
   return response.data
 }
 
@@ -22,7 +24,7 @@ const getOrder = async (order_id) => {
   debugger
   const response = await axios.get(`http://localhost:3000/api/orders/${order_id}`, {headers: authHeaders})
   debugger
-  return response.data.order.items;
+  return response.data.order.menu_items;
 };
 
 const closeOrder = async (order_id) => {

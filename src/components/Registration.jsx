@@ -22,7 +22,8 @@ class Registration extends Component {
         access_token: response.headers['access-token'],
         expiry: response.headers['expiry'],
         token_type: "Bearer"
-      } 
+      }
+      
       localStorage.setItem('userData', JSON.stringify(userCredentials))
       this.setState({
         message: 'Successfull registration',

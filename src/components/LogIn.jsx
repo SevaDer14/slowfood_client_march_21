@@ -14,7 +14,7 @@ class LogIn extends Component {
       password: event.target.password.value,
     };
     try {
-      let response = await axios.get("/users", credentials);
+      let response = await axios.post("http://localhost:3000/api/auth/sign_in", credentials);
       const userCredentials = {
         uid: response.headers["uid"],
         client: response.headers["client"],
