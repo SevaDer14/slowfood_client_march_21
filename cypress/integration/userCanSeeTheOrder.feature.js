@@ -71,6 +71,6 @@ describe("user can see the order", () => {
         cy.get('[data-cy="price"]').should("contain", '25Kr');
       });
     });
-    cy.get('[data-cy="total-price"]').should('contain', '295Kr')
+    cy.get('[data-cy="total-price"]').should('contain', 'Total price: 295Kr')
   });
 });

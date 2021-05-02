@@ -27,7 +27,6 @@ class ViewOrder extends Component {
       this.setState({totalPrice: totalPrice}) 
       
     })
-    debugger
   }
   
   render() {
@@ -47,7 +46,7 @@ class ViewOrder extends Component {
       <Container data-cy='order-list'>
         {orderItems}
       </Container>
-      <p data-cy='total-price'>{this.state.totalPrice}Kr</p>
+      <p data-cy='total-price'>Total price: {this.state.totalPrice}Kr</p>
       </>
     )
   }
