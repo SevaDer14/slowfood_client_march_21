@@ -15,7 +15,7 @@ const updateOrder = async (item_id, order_id) => {
     `./orders/${order_id}`,
      {item_id: item_id}, 
      {headers: authHeaders}) 
-  return response.data
+  return response.data.body
 }
 
 const getOrder = async (order_id) => {

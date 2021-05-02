@@ -37,5 +37,7 @@ describe("User can successfully finalize their order", () => {
 
   it("is expected to show finalize order button", () => {
     cy.get('[data-cy="finalize-order-button"]').click();
+    cy.get('[data-cy="order-confirmation-message"]').should('contain.text', 'Thank you for your order');
+    cy.get('[data-cy="order-confirmation-ready-time"]').should('contain', 'Your will be ready at: 14:00');
   });
 });
