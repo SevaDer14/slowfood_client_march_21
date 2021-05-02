@@ -52,24 +52,25 @@ describe("user can see the order", () => {
     cy.get('[data-cy="order-list"]').within(() => {
       cy.get('[data-cy="item-0"]').within(() => {
         cy.get('[data-cy="title"]').should("contain.text", "Half beans");
-        cy.get('[data-cy="price"]').should("contain", 45);
+        cy.get('[data-cy="price"]').should("contain", '55Kr');
       });
       cy.get('[data-cy="item-1"]').within(() => {
         cy.get('[data-cy="title"]').should("contain.text", "Half beans");
-        cy.get('[data-cy="price"]').should("contain", 45);
+        cy.get('[data-cy="price"]').should("contain", '55Kr');
       });
       cy.get('[data-cy="item-2"]').within(() => {
         cy.get('[data-cy="title"]').should("contain.text", "BB beans");
-        cy.get('[data-cy="price"]').should("contain", 135);
+        cy.get('[data-cy="price"]').should("contain", '135Kr');
       });
       cy.get('[data-cy="item-3"]').within(() => {
         cy.get('[data-cy="title"]').should("contain.text", "Coke");
-        cy.get('[data-cy="price"]').should("contain", 25);
+        cy.get('[data-cy="price"]').should("contain", '25Kr');
       });
       cy.get('[data-cy="item-4"]').within(() => {
         cy.get('[data-cy="title"]').should("contain.text", "Zingo");
-        cy.get('[data-cy="price"]').should("contain", 25);
+        cy.get('[data-cy="price"]').should("contain", '25Kr');
       });
     });
+    cy.get('[data-cy="total-price"]').should('contain', '295Kr')
   });
 });

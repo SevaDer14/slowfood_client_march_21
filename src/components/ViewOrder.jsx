@@ -6,16 +6,29 @@ class ViewOrder extends Component {
 
   state = {
     menuData: [],
+    totalPrice: 0
   };
 
   componentDidMount() {
     this.getOrderData();
+    
   }
 
   getOrderData = async () => {
     let result = await getOrder(this.props.orderId);
     this.setState({ menuData: result });
+    this.calculateTotalPrice()
   };
+
+  calculateTotalPrice = () => {
+   
+    this.state.menuData.map((item) => {
+      let totalPrice = this.state.totalPrice + item.price
+      this.setState({totalPrice: totalPrice}) 
+      
+    })
+    debugger
+  }
   
   render() {
     let orderItems = this.state.menuData.map((item, i) => {
@@ -34,6 +47,7 @@ class ViewOrder extends Component {
       <Container data-cy='order-list'>
         {orderItems}
       </Container>
+      <p data-cy='total-price'>{this.state.totalPrice}Kr</p>
       </>
     )
   }
