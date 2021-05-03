@@ -5,23 +5,23 @@ import {Item, Container, Header, Button} from 'semantic-ui-react'
 class ViewOrder extends Component {
 
   state = {
-    menuData: [],
+    orderData: [],
     totalPrice: 0,    
   };
 
   componentDidMount() {
     this.getOrderData();
     
-  }
+  };
 
   getOrderData = async () => {
     let result = await getOrder(this.props.orderId);
-    this.setState({ menuData: result });
+    this.setState({ orderData: result });
     this.calculateTotalPrice()
   };
 
   calculateTotalPrice = () => {   
-    this.state.menuData.map((item) => {
+    this.state.orderData.map((item) => {
       let totalPrice = this.state.totalPrice + item.price
       this.setState({totalPrice: totalPrice})      
     })
@@ -29,7 +29,7 @@ class ViewOrder extends Component {
 
   finalizeOrder = async () => {
     let result = await closeOrder(this.props.orderId)
-    this.setPickUpTime(result.body.updated_at)
+    this.setPickUpTime(result.order.updated_at);
   }
 
   setPickUpTime = (timeOfOrder) => {
@@ -44,7 +44,7 @@ class ViewOrder extends Component {
    
   
   render() {
-    let orderItems = this.state.menuData.map((item, i) => {
+    let orderItems = this.state.orderData.map((item, i) => {
       return (
         <Item data-cy={`item-${i}`}>
           <Item.Content>
