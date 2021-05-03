@@ -55,6 +55,11 @@ class App extends Component {
             name="Beverages"
             onClick={() => this.setState({ tab: "beverages" })}
           />
+          <Menu.Item
+            data-cy="sides-button"
+            name="Sides"
+            onClick={() => this.setState({ tab: "sides" })}
+          />
           {this.state.authenticated && (
             <Menu.Item
             data-cy="view-order-button"
