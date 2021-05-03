@@ -10,21 +10,23 @@ class ViewOrder extends Component {
   };
 
   componentDidMount() {
-    this.getOrderData();
-    
+    this.getOrderData();    
   };
 
   getOrderData = async () => {
     let result = await getOrder(this.props.orderId);
+    
     this.setState({ orderData: result });
     this.setState({totalPrice: this.calculateTotalPrice()})    
   };
 
-  calculateTotalPrice = () => {   
-    this.state.orderData.map((item) => {
-      let totalPrice = this.state.totalPrice + item.price
-      return totalPrice
-    })
+  calculateTotalPrice = () => {
+    let totalPrice = 0    
+    this.state.orderData.map((item) => {      
+       totalPrice += item.price
+      debugger
+      return totalPrice      
+    })    
   }
 
   finalizeOrder = async () => {
@@ -36,7 +38,7 @@ class ViewOrder extends Component {
     let timestamp =`${timeOfOrder.slice(11, 16)}`
     let [hh, mm] = timestamp.split(':').map(s=>parseInt(s, 10));
     const d = new Date();
-    d.setHours(hh);
+    d.setHours(hh+2);
     d.setMinutes(mm);
     const pickUpTime = new Date(d.getTime() + 30 * 60 * 1000)    
     this.setState({pickUpTime: `${pickUpTime.toString().slice(16, 21)}`})
