@@ -29,7 +29,7 @@ class ViewOrder extends Component {
 
   finalizeOrder = async () => {
     let result = await closeOrder(this.props.orderId)
-    this.setPickUpTime(result.body.updated_at)
+    this.setPickUpTime(result.order.updated_at);
   }
 
   setPickUpTime = (timeOfOrder) => {
