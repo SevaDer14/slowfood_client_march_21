@@ -17,13 +17,13 @@ class ViewOrder extends Component {
   getOrderData = async () => {
     let result = await getOrder(this.props.orderId);
     this.setState({ orderData: result });
-    this.calculateTotalPrice()
+    this.setState({totalPrice: this.calculateTotalPrice()})    
   };
 
   calculateTotalPrice = () => {   
     this.state.orderData.map((item) => {
       let totalPrice = this.state.totalPrice + item.price
-      this.setState({totalPrice: totalPrice})      
+      return totalPrice
     })
   }
 
