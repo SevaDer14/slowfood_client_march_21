@@ -17,6 +17,7 @@ class MenuItemList extends Component {
   };
 
   addToOrder = async (event) => {
+
     let response;
     let itemId = event.target.dataset.item_id;
     if (this.state.numberOfItems) {
