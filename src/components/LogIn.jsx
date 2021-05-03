@@ -14,14 +14,14 @@ class LogIn extends Component {
       password: event.target.password.value,
     };
     try {
-      let response = await axios.post("http://localhost:3000/api/auth/sign_in", credentials);
+      let response = await axios.post("https://baked-beans.herokuapp.com/api/auth/sign_in", credentials);
       const userCredentials = {
         uid: response.headers["uid"],
         client: response.headers["client"],
         access_token: response.headers["access-token"],
         expiry: response.headers["expiry"],
         token_type: "Bearer",
-      };
+      };      
 
       localStorage.setItem("userData", JSON.stringify(userCredentials));
       this.setState({
