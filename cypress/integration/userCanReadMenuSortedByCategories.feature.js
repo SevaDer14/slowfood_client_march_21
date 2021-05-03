@@ -1,11 +1,11 @@
 describe("User can see menu", () => {
   beforeEach(() => {
-    /*cy.server();
+    cy.server();
     cy.route({
       method: "GET",
       url: "http://localhost:3001/api/menu",
       response: "fixture:menu_example.json",
-    });*/
+    });
     cy.visit("/");
   });
 
