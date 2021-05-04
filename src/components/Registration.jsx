@@ -15,7 +15,7 @@ class Registration extends Component {
     };
     
     try {
-      let response = await axios.post("http://localhost:3000/api/auth", credentials);
+      let response = await axios.post("https://baked-beans.herokuapp.com/api/auth", credentials);
       const userCredentials = {
         uid: response.headers['uid'],
         client: response.headers['client'],
