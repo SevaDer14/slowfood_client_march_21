@@ -6,7 +6,7 @@ import axios from "axios";
 import "semantic-ui-css/semantic.min.css";
 import "./index.css"
 
-axios.defaults.baseURL = "http://localhost:3001/api";
+axios.defaults.baseURL = "https://baked-beans.herokuapp.com/api";
 ReactDOM.render(<App />, document.getElementById("root"));
 
 serviceWorker.unregister();

@@ -14,7 +14,7 @@ class LogIn extends Component {
       password: event.target.password.value,
     };
     try {
-      let response = await axios.post("https://baked-beans.herokuapp.com/api/auth/sign_in", credentials);
+      let response = await axios.post("/auth/sign_in", credentials);
       const userCredentials = {
         uid: response.headers["uid"],
         client: response.headers["client"],
